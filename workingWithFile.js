@@ -1,11 +1,7 @@
 var fs = require("fs");
 var contents = fs.readFileSync("poly.json");
-var jsonContent = JSON.parse(contents);
+var jsonContent = JSON.parse(contents).features;
 var inside = require('point-in-polygon');
-
-jf = {
-        type: "Feature"
-    }
 
 function nameOfPolygon (latLong){
     var arr = []
@@ -19,7 +15,12 @@ function nameOfPolygon (latLong){
 
 function addNewPolygon (jsonFile){
     jsonContent.push(jsonFile)
-    fs.writeFileSync('poly.json' , JSON.stringify(jsonContent))
+    retFile = {
+        "type": "FeatureCollection",
+        "features": jsonContent
+      }
+    fs.writeFileSync('poly.json' , JSON.stringify(retFile))
+    return retFile
 }
 
 function isInPolygon (polygon , coordinates){
