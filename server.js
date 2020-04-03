@@ -63,7 +63,7 @@ app.put('/gis/addpolygon/' , (req , res) =>{
     }
     else{
         retVal = addNewPolygon(req.body)
-        res.send(retVal)
+        res.send(JSON.stringify(retVal))
     }
 })
 
