@@ -62,8 +62,8 @@ app.put('/gis/addpolygon/' , (req , res) =>{
         }) 
     }
     else{
-        addNewPolygon(req.body)
-        res.send("??")
+        retVal = addNewPolygon(req.body)
+        res.send(retVal)
     }
 })
 
