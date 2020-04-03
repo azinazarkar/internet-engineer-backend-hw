@@ -1,7 +1,7 @@
 var express = require("express")
 const querystring = require('querystring');
-// const { validate, ValidationError, Joi } = require('express-validation')
-const Joi = require('joi'); 
+const { validate, ValidationError, Joi } = require('express-validation')
+// const Joi = require('joi'); 
 const fs = require('fs');
 const url = require('url');
 var {nameOfPolygon , addNewPolygon} = require ('./workingWithFile')
@@ -24,7 +24,7 @@ const getValidation = Joi.object().keys({
 
 app.get('/gis/testpoint/' , (req , res) => {
     const queryObject = url.parse(req.url,true).query;
-    const result = Joi.validate(queryObject, getValidation);  
+    const result = getValidation.validate(queryObject)
     console.log(result.error == null)
     if (result.error != null){
         res.status(422).json({ 
@@ -55,7 +55,7 @@ const putValidation = Joi.object().keys({
   }); 
 
 app.put('/gis/addpolygon/' , (req , res) =>{
-    const result = Joi.validate(req.body, putValidation);  
+    const result = putValidation.validate(req.body);  
     if (result.error != null){
         res.status(422).json({ 
             message: result.error.details[0].message
