@@ -1,6 +1,7 @@
 var express = require("express")
 const querystring = require('querystring');
-const { validate, ValidationError, Joi } = require('express-validation')
+// const { validate, ValidationError, Joi } = require('express-validation')
+const Joi = require('joi'); 
 const fs = require('fs');
 const url = require('url');
 var {nameOfPolygon , addNewPolygon} = require ('./workingWithFile')
