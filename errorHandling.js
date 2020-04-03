@@ -1,20 +1,6 @@
 var keysForGet = ['lat' , 'long']
 var keysForProPut = ['name']
 var keysforGeoPut = ['type' , 'coordinates']
-jf = {"type": "Feature","properties": {"name": "تهران"},"geometry": {"type": "Polygon","coordinates": [
-    [[
-            53.514404296875,
-            34.59704151614417],
-        [
-            51.416015625,
-            34.854382885097905],
-        [
-            51.6851806640625,
-            33.82023008524739],
-        [
-            53.514404296875,
-            34.59704151614417]]]}}
-
 
 function keyErrorGet (jsonObj){
     let keys = Object.keys(jsonObj);

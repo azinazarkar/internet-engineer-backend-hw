@@ -76,6 +76,10 @@ app.put('/gis/addpolygon/' , (req , res) =>{
     res.send("??")
 })
 
+app.get('/' , (req , res) =>{
+    res.send("covid-19")
+})
+
 app.get('/404', function(req, res, next){
     throw "page not found" 
     next()
